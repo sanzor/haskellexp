@@ -1,11 +1,17 @@
 module Main where
     import Jlib
     import Put
+    import Data.Typeable
 
     import System.Environment
 
-    main::IO String
+    main::IO()
     main=do
-        str<-renderJValue sample
-        putStrLn str
-        return "asta"
+        values<-renderJValue sample
+        fileWrite "data.txt" 
+        print values
+        
+
+
+   
+        
