@@ -6,7 +6,7 @@ module Main where
     import System.Environment
 
     out="data.txt"
-
+    -- <-Used only for actions ( IO ,else use let if expression)
     main::IO String
     main=do
          let val=renderJValue sample
