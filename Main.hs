@@ -5,11 +5,15 @@ module Main where
 
     import System.Environment
 
-    main::IO()
+    out="data.txt"
+
+    main::IO String
     main=do
-        values<-renderJValue sample
-        fileWrite "data.txt" 
-        print values
+         let val=renderJValue sample
+         writeFile out val
+         return ("From HS MAIN:"++val)
+       -- writeFile "data.txt" values
+       -- return $ length values
         
 
 
