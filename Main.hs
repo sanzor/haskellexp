@@ -16,6 +16,8 @@ module Main where
        -- return $ length values
         
 
+    renderIO::String->IO String
+    renderIO st>>=putStrLn
 
    
         
