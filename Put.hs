@@ -11,11 +11,12 @@ module Put(
                     JObject [("name",JString "dan"),("kids",JNumber 3)] ,
                     JNumber 3,
                     JBool False,
-                    JString "Simple String"
+                    JString "Howdy"
                     ]
 
     renderJValue::JValue->String
-    renderJValue (JString s)=show s
+    renderJValue (JString s)= s
+    renderJValue (JNumber nr)=show nr
     renderJValue (JBool True)="True"
     renderJValue(JBool False)="False"
     renderJValue JNull="Null"
@@ -23,6 +24,11 @@ module Put(
             getObjData []=""
             getObjData ls=intercalate "," (map kvString ls)
             
-    
+    renderJValue (JArray arr)= "["++elements arr++"]" where
+                                elements []=""
+                                elements ls=intercalate "," (map renderJValue ls)
+
+
     kvString::(String,JValue)->String
+    kvString ([],_)=""
     kvString (f,l)=f++":"++renderJValue l
