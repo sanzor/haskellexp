@@ -15,42 +15,16 @@ module Put(
                     JString "Howdy"
                     ]
 
-    renderJValue::JValue->String
-    renderJValue (JString s)= s
-    renderJValue (JNumber nr)=show nr
-    renderJValue (JBool True)="True"
-    renderJValue(JBool False)="False"
-    renderJValue JNull="Null"
-    renderJValue (JObject o)="{"++getObjData o++"}" where
-            getObjData []=""
-            getObjData ls=intercalate "," (map kvString ls)
-            
-    renderJValue (JArray arr)= "["++elements arr++"]" where
-                                elements []=""
-                                elements ls=intercalate "," (map renderJValue ls)
-
-
-    kvString::(String,JValue)->String
-    kvString ([],_)=""
-    kvString (f,l)=f++":"++renderJValue l
-    sample=JArray[
-                    JObject [("name",JString "adita"),("age",JNumber 13)],
-                    JObject [("name",JString "dan"),("kids",JNumber 3)] ,
-                    JNumber 3,
-                    JBool False,
-                    JString "Howdy"
-                    ]
-
-    renderJValue::JValue->String
+    renderJValue::JValue->String                
     renderJValue (JString s)= s
     renderJValue (JNumber nr)=show nr
     renderJValue (JBool True)="True"
     renderJValue(JBool False)="False"
     renderJValue JNull="Null"
     renderJValue (JObject o)="{"++kvpairs o++"}" where
-        kvpairs []= ""
-        kvpairs ls=intercalate "," (map renderPair ls) 
-        renderPair (k,v)=show k++":"++renderJValue v
+                        kvpairs []= ""
+                        kvpairs ls=intercalate "," (map renderPair ls) 
+                        renderPair (k,v)=show k++":"++renderJValue v
     renderJValue (JArray a)="["++renderArr a++"]" where
-        renderArr []=""
-        renderArr arr=intercalate "," (map renderJValue arr)
+                        renderArr []=""
+                        renderArr arr=intercalate "," (map renderJValue arr)
