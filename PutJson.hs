@@ -1,9 +1,9 @@
-module Put(
+module PutJson(
     renderJValue,
     sample
 ) where
     import Data.List
-    import Jlib
+    import SimpleJson
   
 
 

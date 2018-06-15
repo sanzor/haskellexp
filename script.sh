@@ -1,6 +1,8 @@
 echo "Compiling Haskell program"
-ghc -c Pretty.hs
-ghc -c Jlib.hs
+ghc -c Prettify.hs
+ghc -c PrettyJson.hs
+ghc -c SimpleJson.hs
+ghc -c PutJson.hs
 ghc -c Main.hs
-ghc -c Put.hs
-ghc -o Main Main.o Pretty.o Jlib.o Put.o 
+
+ghc -o Main Main.o PrettyJson.o Prettify.o SimpleJson.o PutJson.o 

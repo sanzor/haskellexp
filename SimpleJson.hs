@@ -1,4 +1,4 @@
-module Jlib(
+module SimpleJson(
     JValue(..),
     getString,
     getInt,
