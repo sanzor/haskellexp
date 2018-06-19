@@ -1,0 +1,12 @@
+Name: mypretty
+Version: 0.1
+Synopsis: A json printing library
+Description:A simple json parsing library for getting know how to create Haskell Libraries
+Author:Bercovici Adrian Simon
+
+library
+ Exposed-Modules:
+     Prettify
+     PrettyJson
+     SimpleJson
+ Build-Depends: base>=2.0
